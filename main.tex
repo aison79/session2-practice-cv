@@ -1,29 +1,57 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[margin=2cm]{geometry}
-\usepackage[hidelinks]{hyperref}
+\documentclass[UTF8,a4paper,11pt,fontset=fandol]{ctexart}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\definecolor{headingblue}{HTML}{234D70}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[itemize]{leftmargin=1.7em,itemsep=1pt,topsep=3pt}
+\ctexset{section={
+  format=\large\bfseries\color{headingblue},
+  beforeskip=13pt,
+  afterskip=5pt
+}}
 
 \begin{document}
 
 \begin{center}
-  {\LARGE\bfseries aison79}\\[6pt]
-  Curriculum Vitae\\[4pt]
-  \href{https://github.com/aison79}{github.com/aison79}
+  {\LARGE\bfseries 李铭泽}\par
+  \vspace{4pt}
+  {\small 个人简历}
 \end{center}
 
-\section*{Education}
-\textbf{University and degree:} [To be filled in]\\
-\textbf{Major and dates:} [To be filled in]
+\section*{教育背景}
+\textbf{西南石油大学} \quad 智能感知工程 \quad 本科
+\hfill 2022.09--2026.06
 
-\section*{Course Projects}
-\textbf{Data Engineering: Model Training and Release}\\
-Used GitHub Actions to train a linear regression model and publish
-the model coefficients as a downloadable release file.\\
-\href{https://github.com/aison79/session2-practice-ci-cd}{Project repository}
+\textbf{主修课程：}自动控制理论、现代控制理论、模拟电子技术、数字电子技术、
+传感器原理、C 语言、高等数学、线性代数。
 
-\section*{Technical Skills}
-\textbf{Practiced in this course:} Git, GitHub Actions, and Python\\
-\textbf{Additional skills:} [To be filled in]
+\section*{毕业设计}
+\textbf{基于机器学习的套管接箍识别算法设计}
+\begin{itemize}
+  \item 面向油井完井作业中的套管接箍检测，设计基于 Python 的机器学习识别方案，
+        包括接箍信号预处理、特征提取与模式识别。
+  \item 项目目标是实现接箍位置的自动识别与标定。
+\end{itemize}
+
+\section*{项目经历}
+\textbf{基于 STM32 的智能小车}
+\begin{itemize}
+  \item 负责循迹模块和蓝牙模块。根据循迹传感器反馈，采用 PID 控制修正小车行驶方向。
+  \item 通过蓝牙串行通信接收手机端控制指令，实现前进、后退、左转和右转。
+\end{itemize}
+
+\textbf{基于 STM32 的智能恒温系统}
+\begin{itemize}
+  \item 负责 PCB 绘制，以及水温检测和加热控制模块的程序编写。
+  \item 用热电偶和 MAX6675 采集水温，通过 MOS 管控制加热棒，实现实时测温和设定温度控制。
+\end{itemize}
+
+\section*{技能与证书}
+\textbf{技术：}C 语言、STM32、PID 控制、传感器数据采集、PCB 绘制。\par
+\textbf{英语：}CET-4、CET-6，可阅读和翻译英文技术文献。
 
 \end{document}
