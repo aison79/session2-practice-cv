@@ -18,13 +18,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v5
 
-      - name: Install LaTeX
+      - name: Install XeLaTeX and Chinese support
         run: |
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends texlive-latex-recommended
+          sudo apt-get install -y --no-install-recommends texlive-xetex texlive-lang-chinese
 
       - name: Compile CV
-        run: pdflatex -interaction=nonstopmode -halt-on-error main.tex
+        run: xelatex -interaction=nonstopmode -halt-on-error main.tex
 
       - name: Upload CV PDF
         uses: actions/upload-artifact@v7
