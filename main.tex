@@ -1,57 +1,122 @@
-\documentclass[UTF8,a4paper,11pt,fontset=fandol]{ctexart}
-\usepackage[a4paper,margin=2.2cm]{geometry}
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,left=15mm,right=15mm,top=17mm,bottom=15mm]{geometry}
 \usepackage{xcolor}
 \usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
 
-\definecolor{headingblue}{HTML}{234D70}
+\definecolor{navy}{HTML}{15334B}
+\definecolor{teal}{HTML}{236A71}
+\definecolor{ink}{HTML}{263644}
+\definecolor{muted}{HTML}{465766}
+\definecolor{ruleblue}{HTML}{92B9BF}
+\definecolor{rulegray}{HTML}{D5DEE4}
+
+\renewcommand{\familydefault}{\sfdefault}
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{4pt}
-\setlist[itemize]{leftmargin=1.7em,itemsep=1pt,topsep=3pt}
-\ctexset{section={
-  format=\large\bfseries\color{headingblue},
-  beforeskip=13pt,
-  afterskip=5pt
-}}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.1em,label=\textcolor{teal}{\textbullet},
+  topsep=4pt,itemsep=3pt,parsep=0pt,partopsep=0pt}
+\hypersetup{pdftitle={Mingze Li - Curriculum Vitae},pdfauthor={Mingze Li}}
+
+\newcommand{\cvsection}[1]{%
+  {\color{navy}\fontsize{12.2pt}{15pt}\selectfont\bfseries #1}\par
+  \vspace{3pt}{\color{ruleblue}\hrule height 1.25pt}\vspace{7pt}%
+}
+\newcommand{\entry}[2]{%
+  {\color{navy}\bfseries #1}\par
+  {\small\color{teal}\bfseries #2}\par
+}
+\newcommand{\schooldate}[1]{%
+  \vspace{2pt}{\small\color{muted}#1}\par
+}
+\newcommand{\entryseparator}{%
+  \par\vspace{8pt}{\color{rulegray}\hrule height 0.5pt}\vspace{8pt}%
+}
+\newcommand{\skillgroup}[2]{%
+  {\color{navy}\bfseries #1}\par #2\par\vspace{7pt}%
+}
+
+\newcommand{\cvheadline}{Master's Student in Electronic Information \enspace | \enspace Shanghai University}
+\newcommand{\gradeducation}{%
+  \entry{Master's studies in Electronic Information}{Shanghai University / Sino-European School of Technology (UTSEUS)}%
+  \schooldate{Sep 2026 -- Present}%
+  \entryseparator
+}
 
 \begin{document}
+\color{ink}
+\raggedright
 
-\begin{center}
-  {\LARGE\bfseries 李铭泽}\par
-  \vspace{4pt}
-  {\small 个人简历}
-\end{center}
+{\color{navy}\fontsize{30pt}{34pt}\selectfont\bfseries MINGZE LI}\par
+\vspace{3pt}
+{\color{teal}\fontsize{12.2pt}{15.5pt}\selectfont\bfseries\cvheadline}\par
+\vspace{18pt}
 
-\section*{教育背景}
-\textbf{西南石油大学} \quad 智能感知工程 \quad 本科
-\hfill 2022.09--2026.06
+\begin{minipage}[t]{120mm}
+\raggedright
+\fontsize{10.5pt}{14pt}\selectfont
+\cvsection{EDUCATION}
+\gradeducation
+\entry{Bachelor's degree in Intelligent Sensing Engineering}{Southwest Petroleum University}
+\schooldate{Sep 2022 -- Jun 2026}
 
-\textbf{主修课程：}自动控制理论、现代控制理论、模拟电子技术、数字电子技术、
-传感器原理、C 语言、高等数学、线性代数。
-
-\section*{毕业设计}
-\textbf{基于机器学习的套管接箍识别算法设计}
+\vspace{15pt}
+\cvsection{RESEARCH \& PROJECTS}
+\entry{Stereo Structured-Light Vision for a Laser Weeding Robot}{Current Research / Stereo Vision}
 \begin{itemize}
-  \item 面向油井完井作业中的套管接箍检测，设计基于 Python 的机器学习识别方案，
-        包括接箍信号预处理、特征提取与模式识别。
-  \item 项目目标是实现接箍位置的自动识别与标定。
+  \item Investigate how stereo cameras can estimate target depth to support localization in a robotic weeding system.
+  \item Focus on camera calibration, image processing, and depth estimation from stereo image pairs.
 \end{itemize}
 
-\section*{项目经历}
-\textbf{基于 STM32 的智能小车}
+\entryseparator
+\entry{Machine Learning for Casing Coupling Detection}{Undergraduate Thesis / Python and Signal Processing}
 \begin{itemize}
-  \item 负责循迹模块和蓝牙模块。根据循迹传感器反馈，采用 PID 控制修正小车行驶方向。
-  \item 通过蓝牙串行通信接收手机端控制指令，实现前进、后退、左转和右转。
+  \item Proposed a Python workflow to identify casing couplings in sensor signals for oil-well completion applications.
+  \item Defined preprocessing, feature extraction, and machine-learning classification steps to support automatic coupling detection and localization.
 \end{itemize}
 
-\textbf{基于 STM32 的智能恒温系统}
+\entryseparator
+\entry{STM32 Line-Following Vehicle}{PID Control / Bluetooth}
 \begin{itemize}
-  \item 负责 PCB 绘制，以及水温检测和加热控制模块的程序编写。
-  \item 用热电偶和 MAX6675 采集水温，通过 MOS 管控制加热棒，实现实时测温和设定温度控制。
+  \item Developed the line-following and Bluetooth modules. Used sensor feedback and a PID controller on the STM32 to correct steering when the vehicle drifted from the line.
+  \item Added serial communication over Bluetooth for phone-controlled forward, reverse, left, and right movement.
 \end{itemize}
 
-\section*{技能与证书}
-\textbf{技术：}C 语言、STM32、PID 控制、传感器数据采集、PCB 绘制。\par
-\textbf{英语：}CET-4、CET-6，可阅读和翻译英文技术文献。
+\entryseparator
+\entry{STM32 Constant-Temperature Water Controller}{Thermocouple / MAX6675 / PCB Design}
+\begin{itemize}
+  \item Designed the PCB and wrote the temperature-sensing and heater-control firmware. Used a thermocouple and a MAX6675 converter to read the water temperature.
+  \item Compared measured temperature with the target on the STM32 and switched the heater through a MOSFET to regulate water temperature.
+\end{itemize}
+
+\end{minipage}\hfill
+\begin{minipage}[t]{51mm}
+\raggedright
+\fontsize{10.5pt}{14pt}\selectfont
+\cvsection{PROFILE}
+Graduate student with a background in intelligent sensing and automatic control. Interested in camera-based perception, embedded systems, and robotics.
+
+\vspace{15pt}
+\cvsection{TECHNICAL SKILLS}
+\skillgroup{Programming}{C, Python}
+\skillgroup{Embedded Systems}{STM32, PCB layout, serial communication, Bluetooth}
+\skillgroup{Sensing and Control}{PID, thermocouple measurements, MAX6675, MOSFET switching}
+\skillgroup{Computer Vision}{Stereo vision, camera calibration, image processing}
+\skillgroup{Version Control and CI}{Git, GitHub Actions}
+
+\vspace{8pt}
+\cvsection{COURSEWORK}
+Automatic Control Theory\par
+Modern Control Theory\par
+Sensor Principles\par
+Analog and Digital Electronics\par
+C Programming\par
+Calculus and Linear Algebra\par
+
+\vspace{15pt}
+\cvsection{LANGUAGES}
+\skillgroup{English}{CET-4 and CET-6. Reads and translates technical literature.}
+\end{minipage}
 
 \end{document}
